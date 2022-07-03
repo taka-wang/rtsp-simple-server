@@ -6,7 +6,7 @@ Simple RTSP stream server
 
 ```shell
 # built-in video
-docker run --rm -d --name=rtsp1 -e RTSP_PROTOCOLS=tcp -p 8554:8554 registry.gitlab.com/inwinstack/team3/lab2/rtsp-simple-server
+docker run --rm -d --name=rtsp1 -e RTSP_PROTOCOLS=tcp -p 8554:8554 registry.gitlab.com/nilvana-ai/toolbox/rtsp-simple-server
 
 docker exec -it rtsp1 /bin/ash
 tmux
@@ -15,7 +15,7 @@ ctrl+b then d
 exit
 
 # video from /tmp
-docker run --rm -d -v /tmp:/tmp --name=rtsp2 -e RTSP_PROTOCOLS=tcp -p 8555:8554 registry.gitlab.com/inwinstack/team3/lab2/rtsp-simple-server
+docker run --rm -d -v /tmp:/tmp --name=rtsp2 -e RTSP_PROTOCOLS=tcp -p 8555:8554 registry.gitlab.com/nilvana-ai/toolbox/rtsp-simple-server
 docker exec -it rtsp2 /bin/ash
 ffmpeg -re -stream_loop -1 -i /tmp/1.mp4 -c copy -f rtsp rtsp://0.0.0.0:8555/live
 
